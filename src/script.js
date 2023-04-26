@@ -16,6 +16,12 @@ const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 
+// Object 2 (Cool Random Object)
+// const geometry = new THREE.TorusKnotGeometry( 10, 2.5, 300, 20, 9, 15 );
+// const material = new THREE.MeshBasicMaterial( { color: "maroon" } );
+// const mesh = new THREE.Mesh( geometry, material );
+// scene.add( mesh );
+
 // Sizes
 const sizes = {
     width: window.innerWidth,
@@ -58,11 +64,15 @@ const clock = new THREE.Clock()
 
 const tick = () =>
 {
-    const elapsedTime = clock.getElapsedTime()
-
+    // To make the animation faster multiply times 1.7, to make it slower get rid of * 1.7
+    const elapsedTime = clock.getElapsedTime() * 1.7
+    
+    // Update objects/ANIMATION (this animates the object, comment it out to stop the animation)
+    // mesh.rotation.y = elapsedTime;
+    
     // Update controls
     controls.update()
-
+    console.log(elapsedTime)
     // Render
     renderer.render(scene, camera)
 
